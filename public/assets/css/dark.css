@@ -1,0 +1,262 @@
+ @import"https://unpkg.com/open-props/easings.min.css";
+
+  .sun-and-moon>:is(.moon, .sun, .sun-beams) {
+      transform-origin: center center
+  }
+
+  .sun-and-moon>:is(.moon, .sun) {
+      fill: var(--icon-fill)
+  }
+
+  .theme-toggle:is(:hover, :focus-visible)>.sun-and-moon>:is(.moon, .sun) {
+      fill: var(--icon-fill-hover)
+  }
+
+  .sun-and-moon>.sun-beams {
+      stroke: var(--icon-fill);
+      stroke-width: 2px
+  }
+
+  .theme-toggle:is(:hover, :focus-visible) .sun-and-moon>.sun-beams {
+      stroke: var(--icon-fill-hover)
+  }
+
+  [data-theme=light] .sun-and-moon>.sun {
+      transform: scale(1.75)
+  }
+
+  [data-theme=light] .sun-and-moon>.sun-beams {
+      opacity: 0
+  }
+
+  [data-theme=light] .sun-and-moon>.moon>circle {
+      transform: translate(-7px)
+  }
+
+  @supports (cx: 1) {
+      [data-theme=light] .sun-and-moon>.moon>circle {
+          transform: translate(0);
+          cx: 17
+      }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+      .sun-and-moon>.sun {
+          transition: transform .5s var(--ease-elastic-3)
+      }
+
+      .sun-and-moon>.sun-beams {
+          transition: transform .5s var(--ease-elastic-4), opacity .5s var(--ease-3)
+      }
+
+      .sun-and-moon .moon>circle {
+          transition: transform .25s var(--ease-out-5)
+      }
+
+      @supports (cx: 1) {
+          .sun-and-moon .moon>circle {
+              transition: cx .25s var(--ease-out-5)
+          }
+      }
+
+      [data-theme=light] .sun-and-moon>.sun {
+          transform: scale(1.75);
+          transition-timing-function: var(--ease-3);
+          transition-duration: .25s
+      }
+
+      [data-theme=light] .sun-and-moon>.sun-beams {
+          transform: rotate(-25deg);
+          transition-duration: .15s
+      }
+
+      [data-theme=light] .sun-and-moon>.moon>circle {
+          transition-delay: .25s;
+          transition-duration: .5s
+      }
+  }
+
+  .theme-toggle {
+      --size: 0p;
+      --icon-fill: #ffffff;
+      --icon-fill-hover: #7f7f7f;
+      background: none;
+      border: none;
+      padding: 0;
+      inline-size: var(--size);
+      block-size: var(--size);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      outline-offset: 5px
+  }
+
+  .theme-toggle>svg {
+      inline-size: 100%;
+      block-size: 100%;
+      stroke-linecap: round
+  }
+
+  [data-theme=light] .theme-toggle {
+      --icon-fill: #000000;
+      --icon-fill-hover: #7f7f7f;
+  }
+
+  @media (hover: none) {
+      .theme-toggle {
+          /* --size: 48px */
+      }
+  }
+
+  * {
+      box-sizing: border-box;
+      margin: 0
+  }
+
+  html {
+      /* block-size: 100%; */
+      color-scheme: dark
+  }
+
+  html[data-theme=light] {
+      color-scheme: dark
+  }
+
+  @supports not (color-scheme: dark) {
+      html[data-theme=light] {
+          background: #111
+      }
+  }
+
+
+  .github-corner {
+      fill: #ff69b4;
+      color: Canvas
+  }
+
+  .github-corner:hover .octo-arm {
+      -webkit-animation: octocat-wave .56s ease-in-out;
+      animation: octocat-wave .56s ease-in-out
+  }
+
+  [data-theme=light] .github-corner {
+      fill: indigo
+  }
+
+  @-webkit-keyframes octocat-wave {
+
+      0%,
+      to {
+          transform: rotate(0)
+      }
+
+      20%,
+      60% {
+          transform: rotate(-25deg)
+      }
+
+      40%,
+      80% {
+          transform: rotate(10deg)
+      }
+  }
+
+  @keyframes octocat-wave {
+
+      0%,
+      to {
+          transform: rotate(0)
+      }
+
+      20%,
+      60% {
+          transform: rotate(-25deg)
+      }
+
+      40%,
+      80% {
+          transform: rotate(10deg)
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .top-rated[data-theme=light]{
+    background-color: #1f1f1f;
+
+  }
+   
+
+
+   body{
+    transition: .4s;
+   }
+
+
+   body {
+    --first-color: hsl(31, 76%, 74%);
+    --button-color: hsl(0, 0%, 24%);
+    --button-color-alt: hsl(0, 0%, 28%);
+    --title-color: hsl(0, 0%, 95%);
+    --text-color: hsl(0, 0%, 75%);
+    --body-color: hsl(0, 0%, 12%);
+    --container-color: hsl(0, 0%, 16%);
+    --border-color: hsl(0, 0%, 20%);
+    --whi:rgba(255, 255, 255, 0.505);
+    --whii:rgba(255, 255, 255);
+    --blii: #262626;
+  }
+
+
+
+
+  .light{
+    /* --gunmetal-1:rgb(255, 255, 255);
+
+    --eerie-black:rgb(255, 18, 18);
+    --white:black; */
+
+    background-color: #fcfcfc ;
+    --whi:rgb(0, 0, 0);
+    --whii: #262626;
+    --blii: #ffffff;
+    --rich-black-fogra-29:hsla(0, 0%, 24%, 0.302);
+    --rich-black-fogra-39:  hsl(0, 0%, 86%);
+    --raisin-black: hsla(228, 13%, 15%, 0.141);
+    --eerie-black: hsl(0, 0%, 93%);
+    --light-gray: hsl(0, 0%, 24%);
+    --gunmetal-1: #ffffff;
+    --gunmetal-2: hsl(216, 22%, 18%);
+    --gainsboro: hsl(0, 7%, 88%);
+    --citrine: rgb(88, 114, 245);
+    --xiketic: hsl(253, 21%, 13%);
+    --gray-x: hsl(0, 0%, 74%);
+    --white: #262626;
+    --black: hsl(0, 0%, 0%);
+    --jet: hsl(0, 0%, 20%);
+    --text-color:#595959;
+    color-scheme: light;
+--test:  #2e303e;
+    --nav-bg-color: rgb(42, 40, 43);
+    --main-bg-color: rgb(225, 225, 225);
+  }
+
+.fontcolor{
+    color:var(--whii)
+}
+.negcolor{
+    
+}

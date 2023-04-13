@@ -1,0 +1,266 @@
+[
+
+  {
+    "_id": {
+      "$oid": "63d14ddabf35391e4ff1ab37"
+    },
+    "user": {
+      "$oid": "63cd649ec6fe41fed1cdfaf9"
+    },
+    "title": "Tales of the Rays || Sample",
+    "logo": "167466133835333936512f3bea6ce33c41e587b4d9ff6bb37390ee99c9a793c83f2d77a670a83682d5077100.webp",
+    "thumbnail": "167466138304253153764unnamed1.png",
+    "about": "Tales of the Rays (Old) is an RPG belonging to the popular saga 'Tales of', which for the first time has successfully managed to migrate the experience of its previous console titles to the Android ecosystem. On this occasion, players join Ix and Mileena to resurrect the Old World as they rediscover the glory of past heroes.\r\n\r\nFighting in Tales of the Rays (Old) takes place live, perfectly adapted to tactile control systems. Tapping your screen has you deploying normal attacks onto your enemies, while sliding your finger in different directions lets you use special attack abilities.\r\n\r\nWhen you're not going out on adventures or actively battling during combat you can make a stop to visit your base and manage each aspect of your group of heroes. Little by little you'll also recruit new characters, some of which are old acquaintances from other titles within this franchise. Otherwise you can also customize your hero's appearance to raise his level, teach him new skills, equip him with better weapons, and much more.\r\n\r\nTales of the Rays (Old) is an excellent JRPG with outstanding finishing touches, well defined graphics, and as is usual within the saga, 'Tales of' has impressive animation sequences. Not to mention its great soundtrack and back story full of extensive player missions. In short, we're looking at a PC or console-level title (in terms of quality and playability) that's emerged to much success on Android.\r\n",
+    "images": [
+      "167466133836061643377a5500ec65c1aa23ea7cd9cd6b5ab8f3bb8c62ea2eaac15a88c2abadc121a357f800.webp",
+      "167466133836370640296799800ba8671431450c63dd0a0cec4f699ef1c4df0324932993995b54193399c800.webp",
+      "167466133836651218313a32d3c9e916cdea9992f49b034a44a6240f6d1b9926f08988c1c9f7d73ee0f0f200.webp"
+    ],
+    "gameFile": "167466133808828555717talesoftherays130.apk",
+    "platform": "Android",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1674661338372"
+      }
+    },
+    "reviews": [],
+    "__v": 0
+  },
+{
+  "_id": {
+    "$oid": "63d14c84bf35391e4ff1ab1f"
+  },
+  "user": {
+    "$oid": "63cd649ec6fe41fed1cdfaf9"
+  },
+  "title": "Flappy Bird",
+  "logo": "1674660996800288629193a7d3ce8ee1a724c3ab9c987c474374b8babc3d8a64c72a49549f03f7c96e52c100.webp",
+  "thumbnail": "167466099680385282857ffe7f5bddcae7d7b7ed0d4761634396a250224aaaa128072157c460aa1c63ade200.webp",
+  "about": "Flappy Bird is an arcade game where you control a likeable bird that has to fly through many obstacles all made up of pipes.\r\n\r\nThe mechanics are very simple: you have to tap the screen so that the bird flaps its wings, trying to keep a steady rhythm in order to pass through the pipes scattered through its path. It won't be at all easy to do.\r\n\r\nIt will be a challenge to get more than five points (which means flying through five pipes), as it's really difficult to maintain a steady flapping rhythm. In fact, you will have to practice a lot before you start doing well and the game stops being so frustrating.\r\n\r\nEach time you crash and start over, you will notice slight differences that make the game more interesting. You will play in different scenes, at different times (during the day or at night) and with differently colored birds.\r\n\r\nFlappy Bird is an arcade game with very simple mechanics that presents a very difficult challenge. This is precisely why it's so successful, because it sucks you in with just the right amount of difficulty and makes you want to keep trying it one more time.",
+  "images": [
+    "167466099680615497240ffe7f5bddcae7d7b7ed0d4761634396a250224aaaa128072157c460aa1c63ade200.webp",
+    "1674660996811859172661c990ddfcc59eba874e7a65e54b9a2539dfe42a836c12f16a27a7c54c7855dd6200.webp",
+    "167466099681550175410057c9f40ddec76f60d9ae05954d984989a3413bcb1358648c51c1f34ea668850200.webp"
+  ],
+  "gameFile": "167466099677813999236flappybird13enandroid.apk",
+  "platform": "Android",
+  "ytLink": "https://www.youtube.com/watch?v=LVAajcC2JZI&t=1s",
+  "date": {
+    "$date": {
+      "$numberLong": "1674660996820"
+    }
+  },
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63daa009f08010f9d3cabd46"
+  },
+  "user": {
+    "$oid": "63cd649ec6fe41fed1cdfaf9"
+  },
+  "title": "cut the rope ",
+  "logo": "16752722019048010882973d9b6333cab32b966a6f8e147d93fe355dabe4e808e1abee4e4e9824d909b9f100.webp",
+  "thumbnail": "167527220192418135457aoC1duKb400x400.jpg",
+  "about": "Cut the Rope is a fun puzzle game where you have to cut a series of ropes and overcome various obstacles to feed candy to a nice green creature.\r\n\r\nThus, each of the two hundred levels of the game proposes a challenge in that you have to get the candy to your creature. You may use techniques as varied as putting it in a bubble, with a rope swing or blow it with inflatable cushion. All of this, while you avoid falls, encounters against spikes or the threat of being eaten by spiders.\r\n\r\nGiving the candy to our little green friend is not very difficult; however, getting the stars in each stage in the process is not easy. Thanks to this detail you can be busy for hours trying to achieve all its levels.\r\n\r\nCut the Rope is one of the most addictive games of the Market. Its graphic part also is so charming thatyou will find yourself staring at the screen.",
+  "images": [
+    "16752722019263071036449a3f9933d1dd693d9e3aa27efd19186b5bac0a845a92adc9441a5a141b2a176800.webp",
+    "167527220192853639383ba29040286dea2452116b6694317d0fda225900bc1cad33fc2335f466dbfca74800.webp",
+    "167527220193099486193a26886dcd581fc4733f101e14698c01a1f257b0b65a4764e6b0093311eb59aed800.webp",
+    "167527220193271654696880a1ba1a608cdcad1248ab50a79b408cfc362de9213059df8f3d021988a85eb800.webp",
+    "167527220193443652893b0fa3460cbf6dba989c43281267b394c445a5d9e7f0299b8c141b39f258c3a36800.webp"
+  ],
+  "gameFile": "167527220178550078240cuttherope3450.apk",
+  "platform": "Android",
+  "ytLink": "",
+  "likes": [],
+  "comments": [],
+  "date": {
+    "$date": {
+      "$numberLong": "1675272201943"
+    }
+  },
+  "reviews": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63daa65ef08010f9d3cabdbe"
+  },
+  "user": {
+    "$oid": "63cd649ec6fe41fed1cdfaf9"
+  },
+  "title": "Piano White Go!",
+  "logo": "167527382290721642915534cad87709b2599755c84bd903262688309d7f222c51bbab18150bbbf293f9f100.webp",
+  "thumbnail": "167527382292892102179534cad87709b2599755c84bd903262688309d7f222c51bbab18150bbbf293f9f100.webp",
+  "about": "Piano White Go! - Piano Games Tiles is an addicting musical game that challenges you to play dozens of songs with the piano. Your screen will become the keyboard and you have to test your rhythm, concentration skills and visual acuity in order to get the best score that you can.\r\n\r\nGameplay is identical to what you would see in other Piano Tiles games and whether you’re a fan or it’s your first time, Piano White Go! - Piano Games Tiles will get you hooked with its frantic rhythm. Gameplay is super simple: click on the black keys and follow the rhythm of each song until you complete it.\r\n\r\nAs you keep playing and improving your score, you’ll increase your level which will allow you to unlock new songs so you can test yourself with more complex melodies. On the upper part of the screen you’ll see your score at all times, but don’t lose sight of the keys or you’ll lose the round.\r\n\r\nUsing the lower part of the screen you can change the color of the keys and customize your piano. You can also change the song, as long as you’ve unlocked them. Show off your piano skills, play dozens of songs and be the fastest player.",
+  "images": [
+    "167527382293661135846a60724b7b4c7780b6820027dbc74ab44e6c0452ea49bdd51d75ca32310b06462200.webp",
+    "1675273822957631322310e147ebaf0113406f24d3034ff31d76a0fc02735895ed80f5de411c792b3a302200.webp",
+    "1675273822960893008068b3823094db7c6bcf9441407eea12a9ceb433cfbf0b751c7fdbf49854e3fd691200.webp",
+    "167527382296346131566eac56dd7c803b68253c0d17b767849e23cc772c2a60c2aeccb9828eea29670eb200.webp",
+    "16752738229653020078639ad12572da3f2d132228ee2f7477df428479bb72dc8cb5f8826932f8f41a687200.webp"
+  ],
+  "gameFile": "167527382281950094128pianowhitegopianogamestiles251.apk",
+  "platform": "files",
+  "ytLink": "",
+  "likes": [],
+  "comments": [],
+  "date": {
+    "$date": {
+      "$numberLong": "1675273822970"
+    }
+  },
+  "reviews": [],
+  "__v": 0
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "_id": {
+      "$oid": "63d564fd65b206d279b8a988"
+    },
+    "user": {
+      "$oid": "63cd649ec6fe41fed1cdfaf9"
+    },
+    "title": "future gun",
+    "logo": "167492940524350049098Screenshot20230128233900.png",
+    "thumbnail": "",
+    "about": "<img src onerror=\"alert(\"hi\")\">",
+    "images": [],
+    "gameFile": "167492940514996796670nanitesystemsassaultrifle.glb",
+    "platform": "files",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1674929405254"
+      }
+    },
+    "reviews": [],
+    "__v": 0,
+    "comments": [],
+    "likes": []
+  },
+  {
+    "_id": {
+      "$oid": "63d4aebebe504859721e684c"
+    },
+    "user": {
+      "$oid": "63cd649ec6fe41fed1cdfaf9"
+    },
+    "title": "bmw low poly",
+    "logo": "",
+    "thumbnail": "1674898525705519869781440x810.jpeg",
+    "about": "",
+    "images": [],
+    "gameFile": "167489852568788223441bmwe36lowpolyfreedownload.glb",
+    "platform": "files",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1674882750270"
+      }
+    },
+    "reviews": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63d3eb123d8fadde6f961dc1"
+    },
+    "user": {
+      "$oid": "63cd649ec6fe41fed1cdfaf9"
+    },
+    "title": "3d model Astronaut",
+    "logo": "167483265878948210477Astronaut.jpg",
+    "thumbnail": "",
+    "about": "",
+    "images": [],
+    "gameFile": "167483265877772717188NeilArmstrong.glb",
+    "platform": "files",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1674832658843"
+      }
+    },
+    "reviews": [],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63d4a5ffbe504859721e675b"
+    },
+    "user": {
+      "$oid": "63cd649ec6fe41fed1cdfaf9"
+    },
+    "title": "anime girl",
+    "logo": "167488051128421080909445757946b944eb99744393a32b4f199.jpeg",
+    "thumbnail": "",
+    "about": "",
+    "images": [],
+    "gameFile": "167488105499322881974freeannieanimegerl1.glb",
+    "platform": "files",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1674880511290"
+      }
+    },
+    "reviews": [],
+    "__v": 0
+  },
+
+
+
+
+
+
+
+  {
+    "_id": {
+      "$oid": "63a725e7f11b7224ccfcf906"
+    },
+    "user": {
+      "$oid": "63a06f522e8ec7d076ad6a5c"
+    },
+    "title": "test",
+    "logo": "1671898624959-760340975movie-detail-bg (1).png",
+    "thumbnail": "1671898624981-614032361movie-detail-bg (1).png",
+    "about": "",
+    "images": [
+      "1671898675752-905282508bts.jpg",
+      "1671898675759-552030669desktop.ini",
+      "1671898675766-716293438IMG_20160908_213558_BURST19.jpg",
+      "1671898675773-384409350IMG_20170415_074615.jpg"
+    ],
+    "gameFile": "",
+    "platform": "windows",
+    "ytLink": "",
+    "date": {
+      "$date": {
+        "$numberLong": "1671898599767"
+      }
+    },
+    "reviews": [],
+    "__v": 0
+  }
+]

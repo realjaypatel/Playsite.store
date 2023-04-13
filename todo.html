@@ -1,0 +1,63 @@
+<div class="user-info-bar2">
+  <div class="ufo-bar2-col1">
+  </div>
+  <div id="ufo-home" class="ufo-bar2-col2 ufo-bar2-block tabbutton" onclick="openCity(event, 'Games')">
+  <div class="ufo-bar2-col2-inner flexbox">
+  <span><i class="uil uil-trophy"></i></span>
+  <h3>Games</h3>
+  </div>
+  </div>
+  <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block tabbutton activetab" onclick="openCity(event, 'About')">
+  <div class="ufo-bar2-col3-inner flexbox">
+  <span><i class="uil uil-star"></i></span>
+  <h3>About</h3>
+  </div>
+  </div>
+  <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block tabbutton activetab" onclick="openCity(event, 'A')">
+    <div class="ufo-bar2-col3-inner flexbox">
+    <span><i class="uil uil-star"></i></span>
+    <h3>About</h3>
+    </div>
+    </div>
+  
+  <div class="ufo-bar2-col7">
+  </div>
+  </div>
+
+
+  <div id="Games" class="allpost fontcolor tabcontent" style="display: none;">
+    <ul class="movies-list">
+      asdflasdflkj
+    </ul>
+    </div>
+
+
+
+
+  <div id="About" class="tabcontent about" style="display: flex;">
+    <p>hello </p>
+    </div>
+
+      <div id="A" class="tabcontent about" style="display: none;">
+    <p>A </p>
+    </div>
+
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tabbutton;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tabbutton = document.getElementsByClassName("tabbutton");
+  for (i = 0; i < tabbutton.length; i++) {
+    tabbutton[i].className = tabbutton[i].className.replace(" activetab", "");
+  }
+  document.getElementById(cityName).style.display = "flex";
+  console.log(document.getElementById(cityName));
+  evt.currentTarget.className += " activetab";
+}
+</script>

@@ -1,0 +1,337 @@
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar {
+  background: #333;
+  color: #fff;
+  /* padding: 1rem; */
+}
+.main-pdf{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+  background: coral;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.7rem 2rem;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.page-info {
+  margin-left: 1rem;
+}
+
+.error {
+  background: orangered;
+  color: #fff;
+  padding: 1rem;
+}
+
+</style>
+
+
+
+
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+	color: #eee;
+}
+
+button{
+	cursor: pointer;
+	padding: 2px 5px;
+	color: #ccc;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	background-color: #171717;
+}
+
+main{
+	width: 100%;
+
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	
+}
+
+main h3{
+	text-align: center;
+	width: 100%;
+	word-spacing: 0.5rem;
+	font-size: 2rem;
+	color: #bbbbbb;
+}
+
+.pdf-viewer{
+	background-color: #333;
+	background-color: #fff;
+	margin: auto;
+}
+
+.hidden{
+	display:none;
+}
+
+footer{
+	position:sticky;
+	bottom:0;
+	height: 10vh;
+	background-color:#000000;
+}
+
+.pagination{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: #eee;
+	font-size: 1.4rem;
+}
+
+.pagination span{
+	font-size: 1.1rem;
+	margin: 0 10px;
+}
+
+.pagination button{
+	font-size: 1.5rem;
+}
+
+button:active > *{
+	color: #8d8d8d;
+}
+
+footer ul{
+	list-style-type: none;
+	width: 100%;
+	height: 100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	position: relative;
+}
+
+footer ul li:first-child{
+	margin-left: 20px;
+}
+
+footer ul li:last-child{
+	margin-right: 20px;
+}
+
+#zoomValue{
+	display:inline-block;
+	font-size: 0.9rem;
+	width: 60px;
+	vertical-align:center;
+}
+
+#openPDF{
+	font-size: 1.2rem;
+	padding: 2px 5px;
+	font-weight: 700;
+	color:#eee;
+}
+
+
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>PDF Viewer</title>
+  </head>
+  <body>
+    <div class="top-bar">
+      <!-- <button class="btn" id="prev-page">
+        <i class="fas fa-arrow-circle-left"></i> Prev Page
+      </button> -->
+      <!-- <button class="btn" id="next-page">
+        Next Page <i class="fas fa-arrow-circle-right"></i>
+      </button> -->
+      <!-- <span class="page-info">
+        Page <span id="page-num"></span> of <span id="page-count"></span>
+      </span> -->
+    </div>
+<div class="main-pdf">
+    <canvas id="pdf-render"></canvas>
+</div>
+
+    <footer>
+		<ul>
+			<li>
+				<button id="openPDF">
+					<span>Open</span> <i class="fas fa-folder-open"></i>
+				</button>
+
+			</li>
+			<li class="pagination">
+				<button id="prev-page"><i class="fas fa-arrow-alt-circle-left"></i></button>
+				<span id="current_page">
+                    <span class="page-info">
+                        Page <span id="page-num"></span> of <span id="page-count"></span>
+                      </span>
+                </span>
+				<button id="next-page"><i class="fas fa-arrow-alt-circle-right"></i></button>
+			</li>
+
+			<li>
+				<span id="zoomValue">150%</span>
+				<input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50" disabled>
+			</li>
+		</ul>
+	</footer>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+<script>
+
+    const url = 'http://example.com:300/download/167470299951769407062UntilIFoundYouSheetMusicStephenSanchezSheetMusicFree.com.pdf';
+
+let pdfDoc = null,
+  pageNum = 1,
+  pageIsRendering = false,
+  pageNumIsPending = null;
+
+const scale = 1,
+  canvas = document.querySelector('#pdf-render'),
+  ctx = canvas.getContext('2d');
+
+// Render the page
+const renderPage = num => {
+  pageIsRendering = true;
+
+  // Get page
+  pdfDoc.getPage(num).then(page => {
+    // Set scale
+    const viewport = page.getViewport({ scale });
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    const renderCtx = {
+      canvasContext: ctx,
+      viewport
+    };
+
+    page.render(renderCtx).promise.then(() => {
+      pageIsRendering = false;
+
+      if (pageNumIsPending !== null) {
+        renderPage(pageNumIsPending);
+        pageNumIsPending = null;
+      }
+    });
+
+    // Output current page
+    document.querySelector('#page-num').textContent = num;
+  });
+};
+
+// Check for pages rendering
+const queueRenderPage = num => {
+  if (pageIsRendering) {
+    pageNumIsPending = num;
+  } else {
+    renderPage(num);
+  }
+};
+
+// Show Prev Page
+const showPrevPage = () => {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  queueRenderPage(pageNum);
+};
+
+// Show Next Page
+const showNextPage = () => {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  queueRenderPage(pageNum);
+};
+
+// Get Document
+pdfjsLib
+  .getDocument(url)
+  .promise.then(pdfDoc_ => {
+    pdfDoc = pdfDoc_;
+
+    document.querySelector('#page-count').textContent = pdfDoc.numPages;
+
+    renderPage(pageNum);
+  })
+  .catch(err => {
+    // Display error
+    const div = document.createElement('div');
+    div.className = 'error';
+    div.appendChild(document.createTextNode(err.message));
+    document.querySelector('body').insertBefore(div, canvas);
+    // Remove top bar
+    document.querySelector('.top-bar').style.display = 'none';
+  });
+
+// Button Events
+document.querySelector('#prev-page').addEventListener('click', showPrevPage);
+document.querySelector('#next-page').addEventListener('click', showNextPage);
+
+
+const zoomButton = document.getElementById('zoom');
+zoomButton.addEventListener('input', () => {
+
+		document.getElementById('zoomValue').innerHTML = zoomButton.value + "%";
+        console.log( zoomButton.value)
+		currentPDF.zoom = parseInt(zoomButton.value) / 100;
+		renderCurrentPage();
+	
+});
+</script>

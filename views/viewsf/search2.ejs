@@ -1,0 +1,641 @@
+<%- include('include/_side_header', { title:title }) %>
+
+
+
+<main>
+  <article>
+
+    <!-- 
+      - #HERO
+    -->
+
+
+
+
+
+
+    <!-- 
+      - #UPCOMING
+    -->
+
+
+
+
+
+
+
+    <!-- 
+      - #SERVICE
+    -->
+
+
+
+
+
+
+    <!-- 
+      - #TOP RATED
+    -->
+
+    <section class="top-rated">
+      <div class="container">
+
+        <p class="section-subtitle"></p>
+
+        <h2 class="h2 section-title"></h2>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+        <!-- search -->
+        <div class="input-box">
+          <i class="uil uil-search"></i>
+          <input type="text" id="input" placeholder="Search here..." />
+          <button class="btn btn-primary button " onclick="searchClick()">Search</button>
+
+
+        </div>
+        <style>
+          /* Google Fonts - Poppins */
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+          input {
+            border-radius: 27px;
+            background-color: #2e303e;
+            color: var(--white);
+          }
+
+
+          input::placeholder {
+
+            color: var(--white);
+          }
+
+          .input-box {
+            margin-bottom: 31px;
+            position: relative;
+            height: 60px;
+            /* max-width: 900px; */
+            width: 100%;
+            background: rgb(0, 0, 0, 0);
+            border-radius: 40px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+
+          .input-box i,
+          .input-box .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          .input-box i {
+            left: 20px;
+            font-size: 30px;
+            color: var(--white);
+          }
+
+          .input-box input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            font-size: 18px;
+            font-weight: 400;
+            border: none;
+            padding: 0 155px 0 65px;
+            background-color: var(--icon-bg);
+          }
+
+          .input-box .button {
+            right: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            /* color: #fff; */
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            /* background-color: #e2d703;  */
+
+            cursor: pointer;
+          }
+
+          .input-box .button:active {
+            transform: translateY(-50%) scale(0.98);
+          }
+
+          .input-box .button:hover {
+
+            /* font-weight: 700; */
+            scale: 1.02;
+
+
+          }
+
+          /* Responsive */
+          @media screen and (max-width: 500px) {
+            .input-box {
+              height: 50px;
+              margin: 0 8px;
+              margin-bottom: 30px;
+            }
+
+            .input-box i {
+              left: 12px;
+              font-size: 25px;
+            }
+
+            .input-box input {
+              padding: 0 112px 0 50px;
+            }
+
+            .input-box .button {
+              right: 12px;
+              font-size: 14px;
+              padding: 8px 18px;
+            }
+          }
+        </style>
+
+        <script>
+
+          // Execute a function when the user presses a key on the keyboard
+          input.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+              // Cancel the default action, if needed
+              event.preventDefault();
+              let input = document.querySelector("#input").value;
+              window.location.href = "/search?id=" + input;
+            }
+          });
+
+          searchClick = () => {
+            let input = document.querySelector("#input").value;
+            window.location.href = "/search?id=" + input;
+          }
+
+
+        </script>
+
+        <!-- <ul class="filter-list">
+
+          <li>
+            <button class="filter-btn">Apps</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Games</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Software</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">3D</button>
+          </li>
+
+
+        </ul> -->
+        <style>
+          .noresult{
+            display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+          }
+        </style>
+        <% if(data.length==0 && query) { %>
+
+          <div class="noresult">
+          <img style="width: max-content;"
+          src="/assets/images/no-result.png"
+          alt="" loading="lazy">
+
+          <p class="fontcolor"> No result found for
+          <h3 style="color: rgba(123, 113, 113, 0.785);">
+            <%=query %>
+              </>
+              </p>
+
+            </div>
+              <% } %>
+
+
+
+                <ul class="movies-list">
+
+
+                  <% for(var i=0; i < data.length; i++) { %>
+
+                    <li>
+                      <div class="movie-card">
+
+                        <a href="/app/<%= data[i]._id %>">
+                          <figure class="card-banner">
+                            <% if(data[i]._doc.thumbnail){ %>
+                              <img src="<%= url%>/<%= data[i]._doc.thumbnail %>" alt="<%= data[i].title %>" loading="lazy">
+
+                              <% } else if(data[i].logo){ %>
+                                <img src="<%= url%>/<%= data[i]._doc.logo %>" alt="<%= data[i].title %>" loading="lazy">
+
+                                <% } else{ %>
+
+                                  <img src="/assets/images/no-img.webp" alt="<%= data[i].title %>" loading="lazy">
+
+                                  <% } %>
+
+
+
+
+
+
+                          </figure>
+                        </a>
+
+                        <div class="title-wrapper">
+                          <a id="text" href="/app/<%= data[i]._id %>">
+                            <h3 class="card-title">
+                              <%=data[i].title%>
+                            </h3>
+                          </a>
+
+                          <time datetime="2022">
+                            <%= data[i].date.getDate() %>-<%= data[i].date.getMonth()+1%>- <%= data[i].date.getYear()
+                                  - 100%>
+                          </time>
+                        </div>
+
+                        <div class="card-meta">
+
+
+                          <div class="duration">
+
+
+                          </div>
+
+                          <div class="rating">
+                            <ion-icon name="star"></ion-icon>
+
+                            <data>N/A</data>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+
+                    <% } %>
+
+
+
+
+
+
+                </ul>
+
+      </div>
+    </section>
+
+
+    <!-- 
+      - #TV SERIES
+    -->
+
+    <!-- <section class="tv-series">
+      <div class="container">
+
+        <p class="section-subtitle">Best TV Series</p>
+
+        <h2 class="h2 section-title">World Best TV Series</h2>
+
+        <ul class="movies-list">
+
+          <li>
+            <div class="movie-card2 movie-card">
+
+              <a href="./movie-details.html">
+                <figure class="card-banner2 card-banner">
+                  <img src="./assets/images/series-1.png" alt="Moon Knight movie poster">
+                </figure>
+              </a>
+
+              <div class="title-wrapper">
+                <a href="./movie-details.html">
+                  <h3 class="card-title">Moon Knight</h3>
+                </a>
+
+                <time datetime="2022">2022</time>
+              </div>
+
+              <div class="card-meta">
+                <div class="badge badge-outline">2K</div>
+
+                <div class="duration">
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT47M">47 min</time>
+                </div>
+
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+
+                  <data>8.6</data>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="movie-card">
+
+              <a href="./movie-details.html">
+                <figure class="card-banner">
+                  <img src="./assets/images/series-2.png" alt="Halo movie poster">
+                </figure>
+              </a>
+
+              <div class="title-wrapper">
+                <a href="./movie-details.html">
+                  <h3 class="card-title">Halo</h3>
+                </a>
+
+                <time datetime="2022">2022</time>
+              </div>
+
+              <div class="card-meta">
+                <div class="badge badge-outline">2K</div>
+
+                <div class="duration">
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT59M">59 min</time>
+                </div>
+
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+
+                  <data>8.8</data>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="movie-card">
+
+              <a href="./movie-details.html">
+                <figure class="card-banner">
+                  <img src="./assets/images/series-3.png" alt="Vikings: Valhalla movie poster">
+                </figure>
+              </a>
+
+              <div class="title-wrapper">
+                <a href="./movie-details.html">
+                  <h3 class="card-title">Vikings: Valhalla</h3>
+                </a>
+
+                <time datetime="2022">2022</time>
+              </div>
+
+              <div class="card-meta">
+                <div class="badge badge-outline">2K</div>
+
+                <div class="duration">
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT51M">51 min</time>
+                </div>
+
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+
+                  <data>8.3</data>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="movie-card">
+
+              <a href="./movie-details.html">
+                <figure class="card-banner">
+                  <img src="./assets/images/series-4.png" alt="Money Heist movie poster">
+                </figure>
+              </a>
+
+              <div class="title-wrapper">
+                <a href="./movie-details.html">
+                  <h3 class="card-title">Money Heist</h3>
+                </a>
+
+                <time datetime="2017">2017</time>
+              </div>
+
+              <div class="card-meta">
+                <div class="badge badge-outline">4K</div>
+
+                <div class="duration">
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT70M">70 min</time>
+                </div>
+
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+
+                  <data>8.3</data>
+                </div>
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section> -->
+
+    <!-- ************** -->
+
+    <!-- <div class="pagination:container">
+      <div class="pagination:number arrow">
+        <svg width="18" height="18">
+          <use xlink:href="#left" />
+        </svg>
+        <span class="arrow:text">Previous</span>
+      </div>
+
+      <div class="pagination:number">
+        1
+      </div>
+      <div class="pagination:number">
+        2
+      </div>
+
+      <div class="pagination:number pagination:active">
+        3
+      </div>
+
+      <div class="pagination:number">
+        4
+      </div>
+
+      <div class="pagination:number">
+        540
+      </div>
+
+      <div class="pagination:number arrow">
+        <svg width="18" height="18">
+          <use xlink:href="#right" />
+        </svg>
+      </div>
+
+      <svg class="hide">
+        <symbol id="left" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </symbol>
+        <symbol id="right" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </symbol>
+      </svg>
+    </div> -->
+
+
+
+
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+
+      div .pagination\:container {
+        --bg-page: #1a1a1a;
+        --text-color: #f3f3f3;
+
+        background: var(--bg-page);
+        color: var(--text-color);
+      }
+
+      /* * {
+  box-sizing: border-box;
+  font-family: "Inter var", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  user-select: none;
+  transition: all 200ms ease;
+
+  &:focus {
+      outline: none;
+  }
+} */
+
+      /* html,
+body,
+.full-width {
+  height: 100%;
+} */
+
+      /* body {
+
+  &,
+  html {
+      margin: 0;
+      padding: 0;
+  }
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+} */
+
+      .hide {
+        /* display: none; */
+        /* visibility: hidden; */
+        /* height: 0; */
+      }
+
+      .pagination\:container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #e3d804;
+        margin-bottom: 6em;
+        background-color: #110f1a;
+      }
+
+      .arrow\:text {
+        display: block;
+        vertical-align: middle;
+        font-size: 13px;
+        vertical-align: middle;
+      }
+
+      .pagination\:number {
+        --size: 32px;
+        --margin: 6px;
+        margin: 0 var(--margin);
+        border-radius: 6px;
+        background: #202020;
+        max-width: auto;
+        min-width: var(--size);
+        height: var(--size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0 6px;
+
+        @media (hover: hover) {
+          &:hover {
+            background: lighten(#202020, 3%);
+          }
+
+          &:active {
+            background: lighten(#202020, 3%);
+          }
+        }
+      }
+
+      .pagination\:active {
+        background: lighten(#202020, 3%);
+        position: relative;
+      }
+    </style>
+    
+
+
+  </article>
+</main>
+
+
+  <%- include('include/_side_footer.ejs') %>
+
+
+
+
+  <style>
+    .movie-card2 .card-banner2 {
+      position: relative;
+      background: var(--gunmetal-1);
+      aspect-ratio: 2 / 2;
+      border-radius: 60px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: var(--transition-1);
+    }
+
+
+    li {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    #text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  </style>

@@ -1,0 +1,182 @@
+
+<%- include('include/_side_header') %>
+
+
+<main>
+  <article>
+
+    <!-- 
+      - #HERO
+    -->
+
+
+
+
+
+
+    <!-- 
+      - #UPCOMING
+    -->
+
+
+
+
+
+
+    <!-- 
+      - #SERVICE
+    -->
+
+
+
+
+
+    <!-- 
+      - #TOP RATED
+    -->
+
+    <section class="top-rated">
+      <div class="container">
+
+        <div class="topsec">
+        <!-- <p class="section-subtitle">Upload your Games And Apps</p> -->
+
+        <h2 class="h2 section-title">hello, <%= user.name %></h2>
+
+        <ul class="filter-list">
+
+          <li>
+              <a href="/dashboard/add-post">
+            <button class="filter-btn">add App</button>
+          </a>
+          </li>
+
+          <!-- <li>
+              <a href="/doctor-dash?id=<%= user.id %>">
+               in future it is used to add the shortcut link to the profile page 
+            <button class="filter-btn">hello</button> 
+          </a>
+          </li> -->
+
+       
+
+        </ul>
+
+      </div>
+
+
+        <ul class="movies-list">
+
+
+
+          <%- include('include/_show') %>
+
+
+
+
+
+
+
+
+
+
+
+
+        </ul>
+        <% if(posts.length == 0){ %>
+          <div style="
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+      ">
+                  <img src="/assets/images/noupload.png" alt="" style="
+          width: 200px;
+      ">
+                  <div>
+                    <h2 class="fontcolor">You haven't Uploaded any App Yet</h2>
+                  </div>
+                </div>
+        
+        <% } %>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- 
+      - #TV SERIES
+    -->
+
+
+
+
+
+
+    <!-- 
+      - #CTA
+    -->
+
+
+
+  </article>
+</main>
+
+
+
+
+
+<!-- 
+  - #FOOTER
+-->
+
+
+
+
+
+
+
+<!-- 
+  - #GO TO TOP
+-->
+
+<a href="#top" class="go-top" data-go-top>
+  <ion-icon name="chevron-up"></ion-icon>
+</a>
+
+
+
+
+
+<!-- 
+  - custom js link
+-->
+<script src="/assets/js/script.js"></script>
+
+<!-- 
+  - ionicon link
+-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<%- include('include/_side_footer') %>
+
+
+
+<style>
+  @media screen and (max-width: 700px){
+  .topsec {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}}
+</style>

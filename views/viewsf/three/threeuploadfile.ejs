@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+<link rel="stylesheet" href="/assets/extracss/three.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+
+    <!-- The following libraries and polyfills are recommended to maximize browser support -->
+    <!-- NOTE: you must adjust the paths as appropriate for your project -->
+
+    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+    <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+    <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+
+    <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    
+    
+  </head>
+  <body id="corpo">
+
+    <div id="card">
+      <model-viewer
+        id="model-viewer"
+        src="/download"
+        poster=""
+        alt="NEOTIX CYCLE DEMO"
+        shadow-intensity="3.8"
+        camera-controls
+        exposure="2.5"
+        loading="lazy"
+        auto-rotate
+        interpolation-decay="100"
+        shadow-softness="1.2"     
+        camera-orbit="49.25deg 81.73deg auto"
+        min-camera-orbit="auto 52deg auto"
+        max-camera-orbit="auto 98deg auto"
+        environment-image="https://cdn.glitch.com/26f00b29-51b7-4811-9ca7-3f1c898bb4b3%2Faircraft_workshop_01_1k.hdr"
+        oncontextmenu="return false;"
+        autoplay
+        ar
+
+        camera-controls
+         touch-action="pan-y"
+      >
+      <button slot="ar-button" id="ar-button">
+        View in your space
+      </button>
+    
+      <div id="ar-prompt">
+        <img src="https://modelviewer.dev/../../assets/hand.png">
+      </div>
+    
+      <button id="ar-failure">
+        AR is not tracking!
+      </button>
+        
+      <button class="Hotspot" slot="hotspot-1" data-position="0.021652429656029135m 1.4643635734200455m 0.4614263460778892m" data-normal="0.9995959491122697m -0.020561903162868395m 0.019625153672313916m" data-orbit="-50.94862deg 84.56856deg 0.06545582m" data-target="0.021652429656029135m 1.4643635734200455m 0.4614263460778892m" data-fov="12.91deg" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation" onclick='annotationClicked(this)' >Mid</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-2" data-position="0.03323465608204483m 1.7456965277218954m 0.9633126732252862m" data-normal="0.6130924320374928m 0.3857435282187356m 0.6894342609819403m" data-orbit="-20.94862deg 64.56856deg 0.86545582m" data-target="0.03323465608204483m 1.7456965277218954m 0.9633126732252862m" data-fov="22.91deg" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation" onclick='annotationClicked(this)' >front</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-3" data-position="-0.08786772449997013m 0.8735665888411929m -1.242048772877014m" data-normal="0.9986176878038993m -0.0008907634331177366m 0.05255397364329706m" data-orbit="50.94862deg 24.56856deg 0.06545582m" data-target="-0.08786772449997013m 0.8735665888411929m -1.242048772877014m" data-fov="6.91deg" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation" onclick='annotationClicked(this)' >back</div>
+      </button>   
+      
+    </model-viewer>
+
+      <div id="logo">
+        <img src="/assets/images/playsitepowered.png" width="200px">
+      </div>
+
+      <div id="instrucoes">
+   
+        <div class="slider" id="slider" style="position: relative;z-index: 10000;">
+          <div class="slides">
+            <button class="slide" onclick="switchSrc(this, 'Chair')" style="background-image: url('https://modelviewer.dev/../../assets/ShopifyModels/Chair.webp');">
+      
+            </button><button class="slide selected" onclick="switchSrc(this, 'Mixer')" style="background-image: url('https://modelviewer.dev/../../assets/ShopifyModels/Mixer.webp');">
+      
+            </button><button class="slide" onclick="switchSrc(this, 'GeoPlanter')" style="background-image: url('https://modelviewer.dev/../../assets/ShopifyModels/GeoPlanter.webp');">
+            
+            </button><button class="slide" onclick="switchSrc(this, 'ToyTrain')" style="background-image: url('https://modelviewer.dev/../../assets/ShopifyModels/ToyTrain.webp');">
+            
+            </button><button class="slide" onclick="switchSrc(this, 'Canoe')" style="background-image: url('https://modelviewer.dev/../../assets/ShopifyModels/Canoe.webp');">    
+          </button></div>
+        </div>
+        <script type="module">
+          const modelViewer = document.querySelector("model-viewer");
+        
+          window.switchSrc = (element, name) => {
+
+
+
+
+
+            const base = "https://modelviewer.dev/../../assets/ShopifyModels/" + name;
+            modelViewer.src = base + '.glb';
+            modelViewer.poster = base + '.webp';
+            const slides = document.querySelectorAll(".slide");
+            slides.forEach((element) => {element.classList.remove("selected");});
+            element.classList.add("selected");
+            document.getElementById('wrapper').style.display = 'none';
+  document.getElementById('circles').style.display = 'none';
+  document.getElementById('slider').style.display = 'none';
+          };
+        
+          document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+            // Keep slider interactions from affecting the XR scene.
+            ev.preventDefault();
+          });
+        </script>
+
+<style>
+  .slider {
+    /* width: 100%; */
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 16px;
+}
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+.slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+*::-webkit-scrollbar-track {
+  display: none !important;
+}
+
+*::-webkit-scrollbar-thumb {
+display: none !important;
+} 
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <p>
+
+
+         title
+            Click on the items to learn more. <br>Tap to rotate. Use scroll or Pinch to zoom and double click to reset
+        </p>Powered with <a href="https://www.playsite.store" target="_blank">PlaySite.store</a>
+         Model by: <a href="https://www.playsite.store/store/" target="_blank"> </a>
+         <br>
+      </div>
+      
+      <h1 id="nome_produto">Explore
+         the Unlimited 3D world </h1>
+      <div id="footer">
+        <p id="detalhes">
+            Show your creativity with the world, and explore with the
+             <b>3D world of Playsite</b></p>
+      </div>
+      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <link rel="stylesheet" href="/assets/extracss/audio.css">
+     -->
+
+<style>
+    
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(#006db3, #29b6f6);
+}
+.circles {
+  position: absolute;
+  height: 270px;
+  width: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle-1 {
+  height: 180px;
+  width: 180px;
+  top: -50px;
+  left: -60px;
+}
+.circle-2 {
+  height: 200px;
+  width: 200px;
+  bottom: -90px;
+  right: -90px;
+  opacity: 0.8;
+}
+
+
+</style>
+<div class="circles" id="circles">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+  </div>
+    <div class="wrapper" id="wrapper" style="z-index: 100;  position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);">
+        <header>Playsite 3D Player</header>
+        <form action="#">
+            <input id="fileinput" class="file-input" type="file" name="file" hidden  onchange="loadFile(event)" style="z-index: 10000; position: relative; display: none;">
+
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drop your Files or Browse (glb files)</p>
+        </form>
+        <section class="progress-area"></section>
+        <section class="uploaded-area"></section>
+      </div>
+    
+    
+    
+    
+    
+    
+    <style>
+        /* Import Google font - Poppins */
+
+    
+    ::selection{
+      color: #fff;
+      background: #6990F2;
+    }
+    .wrapper{
+      width: 430px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 30px;
+      box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+    }
+    .wrapper header{
+      color: #000000;
+      font-size: 27px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .wrapper form{
+      height: 167px;
+      display: flex;
+      cursor: pointer;
+      margin: 30px 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 5px;
+      border: 2px dashed #000000;
+    }
+    form :where(i, p){
+      color: #000000;
+    }
+    form i{
+      font-size: 50px;
+    }
+    form p{
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    
+    section .row{
+      margin-bottom: 10px;
+      background: #E9F0FF;
+      list-style: none;
+      padding: 15px 20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    section .row i{
+      color: #6990F2;
+      font-size: 30px;
+    }
+    section .details span{
+      font-size: 14px;
+    }
+    .progress-area .row .content{
+      width: 100%;
+      margin-left: 15px;
+    }
+    .progress-area .details{
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+      justify-content: space-between;
+    }
+    .progress-area .content .progress-bar{
+      height: 6px;
+      width: 100%;
+      margin-bottom: 4px;
+      background: #fff;
+      border-radius: 30px;
+    }
+    .content .progress-bar .progress{
+      height: 100%;
+      width: 0%;
+      background: #6990F2;
+      border-radius: inherit;
+    }
+    .uploaded-area{
+      max-height: 232px;
+      overflow-y: scroll;
+    }
+    .uploaded-area.onprogress{
+      max-height: 150px;
+    }
+    .uploaded-area::-webkit-scrollbar{
+      width: 0px;
+    }
+    .uploaded-area .row .content{
+      display: flex;
+      align-items: center;
+    }
+    .uploaded-area .row .details{
+      display: flex;
+      margin-left: 15px;
+      flex-direction: column;
+    }
+    .uploaded-area .row .details .size{
+      color: #404040;
+      font-size: 11px;
+    }
+    .uploaded-area i.fa-check{
+      font-size: 16px;
+    }
+    </style>
+    
+    
+    <script>
+        const form = document.querySelector("form"),
+    fileInput = document.querySelector(".file-input"),
+    progressArea = document.querySelector(".progress-area"),
+    uploadedArea = document.querySelector(".uploaded-area");
+    
+    form.addEventListener("click", () =>{
+      fileInput.click();
+    });
+    
+    fileInput.onchange = ({target})=>{
+        console.log('upload')
+        var output = document.getElementById('model-viewer');
+          output.src = URL.createObjectURL(target.files[0]);
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+  document.getElementById('wrapper').style.display = 'none';
+  document.getElementById('circles').style.display = 'none';
+  document.getElementById('slider').style.display = 'none';
+    }
+}
+    
+     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <script type="module" src="cameraControlsModel.js"></script>
+
+    <script>
+
+      const mv = document.querySelector("#model-viewer");
+
+      const annotationClicked = (a) => {
+
+        let ds = a.parentNode.dataset;
+
+        mv.cameraTarget = ds.target;
+
+        mv.cameraOrbit = ds.orbit;
+
+        if(ds.fov !== undefined)
+
+            mv.fieldOfView = ds.fov;
+
+      }
+
+    </script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+      #ar-button {
+      /* background-image: url(https://modelviewer.dev/../../assets/ic_view_in_ar_new_googblue_48dp.png);
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: 12px 50%;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      bottom: 175px;
+      padding: 0px 16px 0px 40px;
+      font-family: Roboto Regular, Helvetica Neue, sans-serif;
+      font-size: 14px;
+      color:#4285f4;
+      height: 50px;
+      line-height: 36px;
+      border-radius: 18px;
+      border: 1px solid #DADCE0; */
+      background-image: url(https://modelviewer.dev/../../assets/ic_view_in_ar_new_googblue_48dp.png);
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: 13px 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    bottom: 175px;
+    padding: 0px 16px 0px 96px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 40px;
+    color: #4285f4;
+    height: 100px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #DADCE0;
+    }
+  
+    #ar-button:active {
+      background-color: #E8EAED;
+    }
+  
+    #ar-button:focus {
+      outline: none;
+    }
+  
+    #ar-button:focus-visible {
+      outline: 1px solid #4285f4;
+    }
+  
+    @keyframes circle {
+      from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+      to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+    }
+  
+    @keyframes elongate {
+      from { transform: translateX(100px); }
+      to   { transform: translateX(-100px); }
+    }
+  
+    model-viewer > #ar-prompt {
+      position: absolute;
+      left: 50%;
+      bottom: 175px;
+      animation: elongate 2s infinite ease-in-out alternate;
+      display: none;
+    }
+  
+    model-viewer[ar-status="session-started"] > #ar-prompt {
+      display: block;
+    }
+  
+    model-viewer > #ar-prompt > img {
+      animation: circle 4s linear infinite;
+    }
+  
+    model-viewer > #ar-failure {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 175px;
+      display: none;
+    }
+  
+    model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+      display: block;
+    }
+    .wrapper {
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgb(0 0 0 / 20%);
+    overflow: hidden;
+}
+</style>
+
+
+
+<script>
+    function random_bg_color(){
+    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
+    let a;
+
+    function populate(a){
+        for(let i=0; i<6; i++){
+            let x = Math.round(Math.random() * 14);
+            let y = hex[x];
+            a += y;
+        }
+        return a;
+    }
+    let Color1 = populate('#');
+    let Color2 = populate('#');
+    var angle = 'to right';
+
+    let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
+    document.body.style.background = gradient;
+}
+random_bg_color()
+</script>

@@ -1,0 +1,839 @@
+
+<% headdesc = (data.aboutGame+  "   download from thousands of Apps, Games, Assets, Books and many more now with playsite").substring(0, 159) %>
+<%- include('include/_side_header', {title: data.title ,headdesc: headdesc,headimg :  data.logo,headtags:data.title}); %>
+<%- include('include/_app_header'); %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="App fontcolor" style="user-select: auto">
+  <div class="gamePage_main__2wDu0" style="user-select: auto">
+    <div class="gamePage_gamePage_container__9rIHH" style="user-select: auto">
+      <div class="gameCard_main__1lab0" style="user-select: auto">
+        <p class="gameCard_heading__1G4Br " style="user-select: auto; font: size 50px;">
+          <h1 class="h1 detail-title main-title title1 title2 title3">
+            <%= data.title %>
+          </h1>
+          <div class="meta-wrapper ">
+
+            <div class="badge-wrapper main-title">
+              <div class="badge badge-fill"><%=data.platform%> <%
+                if(data.platform == "windows"){
+                  %> <i class='bx bxl-windows'></i><%
+                }else if(data.platform == "Mac"){
+                  %><i class='bx bxl-apple' ></i><%
+                }else if(data.platform == "Android"){
+                  %><i class='bx bxl-android' ></i><%
+                }else if(data.platform == "IOS"){
+                  %><i class='bx bxl-apple' ></i><%
+                }else if(data.platform == "LINUX"){
+                  %><i class='bx bxs-cube'></i><%
+                }else if(data.platform == "files"){
+                  %><i class='bx bx-file'></i><%
+                }
+
+
+                %></div>
+
+              <!-- <div class="badge badge-outline">HD</div>
+            </div> -->
+
+            <div class="ganre-wrapper">
+          
+
+              <% if(data.filetype){%>
+
+              FileType: <%= data.filetype %>
+              <%}%>
+
+            </div>
+
+            <div class="date-time">
+
+              <div>
+            
+                
+                <!-- <ion-icon name="calendar-outline"></ion-icon> -->
+
+                </div>
+
+
+            </div>
+
+          </div>
+
+        </p>
+        <div class="gameCard_container__2pPRo" style="user-select: auto">
+          <div class="gameCard_card__azoyL" style="user-select: auto">
+            <div style="user-select: auto">
+              <div class="carousel-root" style="user-select: auto">
+                <div
+                  class="carousel carousel-slider"
+                  style="width: 100%; user-select: auto"
+                >
+                  <ul class="control-dots" style="user-select: auto">
+                    <li
+                      class="dot"
+                      value="0"
+                      role="button"
+                      tabindex="0"
+                      aria-label="slide item 1"
+                      style="user-select: auto"
+                    ></li>
+                    <li
+                      class="dot"
+                      value="1"
+                      role="button"
+                      tabindex="0"
+                      aria-label="slide item 2"
+                      style="user-select: auto"
+                    ></li>
+                    <li
+                      class="dot"
+                      value="2"
+                      role="button"
+                      tabindex="0"
+                      aria-label="slide item 3"
+                      style="user-select: auto"
+                    ></li>
+                    <li
+                      class="dot"
+                      value="3"
+                      role="button"
+                      tabindex="0"
+                      aria-label="slide item 4"
+                      style="user-select: auto"
+                    ></li>
+                    <li
+                      class="dot selected"
+                      value="4"
+                      role="button"
+                      tabindex="0"
+                      aria-label="slide item 5"
+                      style="user-select: auto"
+                    ></li>
+                  </ul>
+                  <button
+                    type="button"
+                    aria-label="previous slide / item"
+                    class="control-arrow control-prev"
+                 
+                    style="user-select: auto"
+                  ></button>
+                  <div
+                    class="slider-wrapper axis-horizontal"
+                    style="user-select: auto"
+                  >
+        
+<section>
+  <div id="preview2">
+    <% for(var i=0; i < data.heroImages.length; i++) { %>
+
+      <img class="imghero" src="<%= data.heroImages[i] %>" alt="">
+
+  
+      <% } %>
+</div>
+  </section>
+                  </div>
+              
+                </div>
+            
+              </div>
+            </div>
+            <div style="user-select: auto">
+             
+              <p class="gameCard_description__2JFej" style="user-select: auto">
+          <!-- <span>   About <strong>!</strong></span> -->
+               
+               
+                <!-- <%= data.description %> -->
+              </p>
+            </div>
+       
+            <div class="gameCard_about_div__295MZ" style="user-select: auto">
+              <p class="gameCard_game_heading__lYX2- about fontcolor" style="user-select: auto">
+                <h2>
+                 About this App<i class='bx bx-right-arrow-alt'></i>
+                </h2>
+              </p>
+              <div class="gameCard_about_game__21p--" style="user-select: auto">
+                <p class="space fontcolor aboutsec" style="user-select: auto "><%= data.aboutGame %></p>
+              </div>
+
+            </div>
+
+
+            <p class="gameCard_game_heading__lYX2- about fontcolor" style="user-select: auto">
+              <h2>
+               Rating and reviews<i class='bx bx-right-arrow-alt'></i>
+              </h2>
+            </p>
+            <div class="gameCard_about_game__21p--" style="user-select: auto">
+              <p class="space fontcolor aboutsec" style="user-select: auto "><%= data.rates %></p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div style="user-select: auto">
+              <p
+                class="gameCard_game_heading__lYX2-"
+                style="user-select: auto"
+              >
+                <!-- Features <strong>!</strong> -->
+              </p>
+              <div
+                class="gameCard_game_features__Ft4E3"
+                style="user-select: auto"
+              >
+              <!-- <%= data.gameFeatures %> -->
+              </div>
+
+              <figure class="c" >
+                <!-- <% if( data.downloadLink && data.filetype=="pdf"){ %>
+                  <%- include('include/_app_pdf',{url:data.downloadLink}); %>
+
+                  <% }  %> -->
+                
+
+
+                <%- include('include/_app_reaction',{data:data.rates, id:data.id}); %>
+
+
+         
+         
+
+                <%if(data.ytLink){ params   = new URL(data.ytLink).searchParams}%>
+    
+                <% if(data.ytLink){ %>
+                  <div class="container">
+                  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/<%=params.get('v')%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <% } else{ %>  
+                  <p class="section-subtitle">no video availabe !</p>
+               <% } %>
+    
+                      </figure>
+            </div>
+
+<style>
+  #preview2 {
+    display: flex;
+    overflow-x: auto;
+}
+#preview2 img {
+    margin: 5px;
+}
+.imghero {
+     display: block;
+    position: relative;
+
+    max-height: 400px;
+    margin: auto;
+
+
+     border-width: 0;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    border-radius: 8px;
+    cursor: pointer;
+    height: 300px;
+    min-width: auto;
+
+    max-width: 100%; 
+
+}
+@media screen and (min-width: 1280px){
+ .imghero {
+    height: 400px;
+    max-width: 100%;
+    min-width: auto;
+}
+
+}
+</style>
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div class="gameCard_payment__1BG6y" style="user-select: auto">
+            <div class="paymentCard_main__2Pp-a" style="user-select: auto">
+              <div class="paymentCard_logo__1CoBW" style="user-select: auto">
+                
+                
+                
+                <% if(data.logo){ %>
+             
+                    <img src="<%= data.logo%>" alt="<%= data.title %>" style="user-select: auto">
+                  <% } else if(data.thumbnail) { %>  
+                    <img src="<%= data.thumbnail%>" alt="<%= data.title %>" style="user-select: auto">
+                 <% } else{ %>
+
+                  <img src="https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg" alt="<%= data.title %>" style="user-select: auto">
+             
+                  <% }  %>
+                
+                
+                
+                
+                
+                
+                
+                
+
+              </div>
+              
+              <div class="phone-title fontcolor">
+              <h1 class="h1 detail-title">
+                <%= data.title %> <strong>!</strong>
+              </h1>
+              <p class="detail-subtitle fontcolor">
+                <a href="/store/<%= data.developer %>">
+                BY <%= data.developer %>
+              </a>
+              </p>
+</div>
+              <div class="paymentCard_upper__2l_pQ" style="user-select: auto">
+              
+                <div class="paymentCard_price__t4qq9" style="user-select: auto">
+                  <!-- <div
+                    class="price-component_price__3s8s1"
+                    style="user-select: auto"
+                  >
+                  <% if(data.price.discount){ %>
+                    <div
+                    class="price-component_blue_button__13OKH"
+                    style="user-select: auto"
+                  >
+                    -<%= data.price.discount %>%
+                  </div>
+                  <% } else{ %>  
+                   
+                 <% } %>
+                 <% if(data.price.mainPrice){ %>
+                  <div
+                  class="price-component_prev_price__2Pdz0"
+                  style="user-select: auto"
+                >
+                  ₹ <%= data.price.mainPrice %>
+                </div>
+                <% } else{ %>  
+                  
+               <% } %>
+               <% if( data.price.discountedPrice ){ %>
+          <div
+          class="price-component_disounted_price__2aQkW"
+                      style="user-select: auto"
+                    >
+                      ₹ <%= data.price.discountedPrice %>
+                    </div>
+              <% } else{ %>  
+                
+             <% } %>
+                   
+                  </div> -->
+                </div>
+              </div>
+              <div class="" style="user-select: auto">
+                <% if( data.downloadLink && data.filetype=="pdf"){ %>
+                  <a href="/pdf/<%= data.id %>">
+                    <button
+                      class="paymentCard_buy_btn__32saJ"
+                      style="user-select: auto"
+                    >
+    
+              
+                  
+                     View Online with Playsite PdfViewer
+               
+                      </button></a>
+                  <% } else if(data.downloadLink && data.filetype=="mp3"){ %>
+                
+                    <a href="/audio/<%= data.id %>">
+                      <button
+                        class="paymentCard_buy_btn__32saJ"
+                        style="user-select: auto"
+                      >
+      
+                
+                    
+                       Listen Online with Playsite Audio Play
+                 
+                        </button></a>
+<% } else if(data.downloadLink && data.filetype=="glb"){ %>
+                
+                    <a href="/3d/<%= data.id %>">
+                      <button
+                        class="paymentCard_buy_btn__32saJ"
+                        style="user-select: auto"
+                      >
+      
+                
+                    
+                       Watch fullScreen with Playsite 3D world
+                 
+                        </button></a>
+<% } %>
+
+
+
+
+
+
+
+
+
+
+
+                <% if( data.downloadLink){ %>
+                  <a href="<%= data.downloadLink %>">
+                    <button
+                      class="paymentCard_buy_btn__32saJ"
+                      style="user-select: auto"
+                    >
+    
+              
+                  
+                      BUY NOW / Download 
+               
+                      </button></a>
+                  <% } else{ %>
+            
+                          <button
+                            class="paymentCard_buy_btn__32saJ"
+                            style="user-select: auto; opacity: 0.4;"
+                          >
+          
+                    
+                        
+                          Download : User have probably removed file
+                     
+                            </button>
+                  <% } %>
+                  <button
+                  class="paymentCard_wishlist_btn__1zyUQ"
+                  style="user-select: auto"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255); "><path d="M6 3h2v2H6zm2 16h3v2H8zm8-16h2v2h-2zm-3 16h3v2h-3zm7-8V9h-2V7h-2V5h-2v2h-4V5H8v2H6v2H4v2H2v8h2v-4h2v4h2v-3h8v3h2v-4h2v4h2v-8zm-10 1H8V9h2zm6 0h-2V9h2z"></path></svg>
+                <p style="user-select: auto" id="ownitnow" onclick="ownitnow()">
+                 <%= data.ownit %>
+                  </p>
+                </button>
+
+
+                <button
+                  class="paymentCard_wishlist_btn__1zyUQ"
+                  style="user-select: auto"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle><path d="M13 13h2v-2.99h2.99v-2H15V5.03h-2v2.98h-2.99v2H13V13z"></path><path d="M10 17h8a1 1 0 0 0 .93-.64L21.76 9h-2.14l-2.31 6h-6.64L6.18 4.23A2 2 0 0 0 4.33 3H2v2h2.33l4.75 11.38A1 1 0 0 0 10 17z"></path></svg>
+                  <p style="user-select: auto" id="addtocart" onclick="addtocart()">
+                 <%= data.cart %>
+                  </p>
+                </button>
+
+              </div>
+
+
+           
+                <script>
+                   var Id ="<%= data.id %>"
+                </script>
+       
+           
+              <script>
+                console.log('hello world')
+              
+                // console.log("Id: " + Id);
+                 let data = {gameId: Id};
+              
+let addtocart = async()=>{
+  elem = document.getElementById("addtocart");
+  elem.innerHTML = "Adding... plz wait";
+await fetch("/user/add-cart", {
+  method: "POST",
+  headers: {'Content-Type': 'application/json'}, 
+  body: JSON.stringify(data)
+}).then((response) => {
+
+  elem.innerHTML = "Added to Cart";
+
+});
+}
+let ownitnow= async()=>{
+   elem = document.getElementById("ownitnow");
+  elem.innerHTML = "Adding... plz wait";
+await fetch("/user/add-library", {
+  method: "POST",
+  headers: {'Content-Type': 'application/json'}, 
+  body: JSON.stringify(data)
+}).then((response) => {
+
+  elem.innerHTML = "Added to Library";
+
+});
+}
+              </script>
+
+
+
+
+
+              <div
+                class="paymentCard_game_info__2C1-O"
+                style="user-select: auto"
+              >
+                <div
+                  class="paymentCard_game_details__2FcP4"
+                  style="user-select: auto"
+                >
+                  <p style="user-select: auto">Developer</p>
+                  <div
+                    class="paymentCard_title__1oePf"
+                    style="user-select: auto"
+                  >
+                  <a href="/store/<%= data.developer %>">
+                    <p style="user-select: auto"><%= data.developer %></p>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="paymentCard_game_details__2FcP4"
+                  style="user-select: auto"
+                >
+                  <p style="user-select: auto">Downloads</p>
+                  <div
+                    class="paymentCard_title__1oePf"
+                    style="user-select: auto"
+                  >
+                    <p style="user-select: auto"><%= data.downloadno %></p> 
+                  </div>
+                </div>
+                <div
+                  class="paymentCard_game_details__2FcP4"
+                  style="user-select: auto"
+                >
+                  <p style="user-select: auto">Release Date</p>
+                  <div
+                    class="paymentCard_title__1oePf"
+                    style="user-select: auto"
+                  >
+                    <p style="user-select: auto">
+                    
+                      
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="paymentCard_game_details__2FcP4"
+                  style="user-select: auto"
+                >
+                  <p style="user-select: auto">Platform
+                  
+                  
+                  
+                  
+                 
+                    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  </p>
+                  <div
+                    class="paymentCard_title__1oePf"
+                    style="user-select: auto"
+                  >
+                
+                  <%=data.platform%>(<%
+                  if(data.platform == "windows"){
+                    %> <i class='bx bxl-windows'></i><%
+                  }else if(data.platform == "Mac"){
+                    %><i class='bx bxl-apple' ></i><%
+                  }else if(data.platform == "Android"){
+                    %><i class='bx bxl-android' ></i><%
+                  }else if(data.platform == "IOS"){
+                    %><i class='bx bxl-apple' ></i><%
+                  }else if(data.platform == "LINUX"){
+                    %><i class='bx bxs-cube'></i><%
+                  }else if(data.platform == "files"){
+                    %><i class='bx bx-file'></i><%
+                  }
+
+
+                  %>)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('include/_side_footer'); %>
+
+<%- include('include/_app_footer'); %>
+
+
+
+
+
+<style>
+  /* margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    transition: all 250ms ease-in-out 0s;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    width: 200%; */
+    .corousel{
+
+    }
+    .splide__track{
+      border-radius: 8px;
+
+    }
+    #thumbnail-slider{
+      margin: 20px;
+    }
+    .splide__slide{
+      border-radius: 8px;
+    }
+    .splide__track--nav>.splide__list>.splide__slide.is-active {
+    border: 3px solid var(--whii);
+}
+</style>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+
+
+var main = new Splide( '#main-slider', {
+  type       : 'fade',
+  heightRatio: 0.5,
+  pagination : false,
+  arrows     : false,
+  cover      : true,
+} );
+
+var thumbnails = new Splide( '#thumbnail-slider', {
+  rewind          : true,
+  fixedWidth      : 104,
+  fixedHeight     : 58,
+  isNavigation    : true,
+  gap             : 10,
+  focus           : 'center',
+  pagination      : false,
+  cover           : true,
+  dragMinThreshold: {
+    mouse: 4,
+    touch: 10,
+  },
+  breakpoints : {
+    640: {
+      fixedWidth  : 66,
+      fixedHeight : 38,
+    },
+  },
+} );
+
+main.sync( thumbnails );
+main.mount();
+thumbnails.mount();
+  </script>
+
+
+
+<style>
+  .aboutsec{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    letter-spacing: .0142857143em;
+    line-height: 1.25rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    max-height: 7.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    color: inherit;
+    font: inherit;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-variant-alternates: ;
+    font-variant-position: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    line-height: ;
+    font-family: ;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+
+
+
+.title3 {
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-weight: 500;
+    align-items: flex-end;
+    display: flex;
+    overflow-wrap: anywhere;
+    width: 100%;
+    word-break: keep-all;
+}
+
+
+@media screen and (min-width: 600px){
+.title2 {
+    font-family: "Google Sans Display",Roboto,Arial,sans-serif;
+    line-height: 3.25rem;
+    font-size: 2.75rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-weight: 500;
+}}
+
+@media screen and (min-width: 1280px){
+.title1 {
+    font-family: "Google Sans Display",Roboto,Arial,sans-serif;
+    line-height: 4.75rem;
+    font-size: 4rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-weight: 500;
+}}
+
+
+</style>

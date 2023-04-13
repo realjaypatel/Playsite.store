@@ -1,0 +1,115 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/assets/extracss/glass.css">
+<style>
+      
+  model-viewer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    --poster-color: transparent;
+    z-index: 2;
+  }
+</style>
+<div id="card">
+
+  </div>
+<!-- Canvas -->
+<div id="logo">
+    <img src="/assets/images/playsitepowered-black.png" width="200px">
+  </div>
+<canvas class="orb-canvas"></canvas>
+<!-- Overlay -->
+<div class="overlay">
+  <!-- Overlay inner wrapper -->
+  <div class="overlay__inner">
+    <!-- Title -->
+    <h1 class="overlay__title">
+     Look at the New World of 3D and AR with
+      <span class="text-gradient">playsite</span> 
+    </h1>
+    <!-- Description -->
+    <p class="overlay__description">
+        you can quickly upload your glb file and view it on playsite 3d and also use it in Augmented mode.
+        to view your 3D model with playsite press below button and upload your glb file.
+        or you can even explore other player models by the button below.
+
+      <strong>Upload your GLB file to view it in Playsite 3D</strong>
+    </p>
+    <!-- Buttons -->
+    <div class="overlay__btns">
+
+      <button class="overlay__btn overlay__btn--transparent">
+        <a href="/3d/view" target="_blank">
+
+          Upload File
+        </a>
+      </button>
+
+      <button class="overlay__btn">
+
+      <a href="/search?type=glb" target="_blank" style="color: white;">
+        Explore other 3D art
+        🎨
+      </a>
+      </button>
+    </div>
+  </div>
+  <!-- <model-viewer
+  id="model-viewer"
+  src="/assets/3d/Bike.glb"
+  poster="/assets/images/lab3.gif"
+  alt="NEOTIX CYCLE DEMO"
+  shadow-intensity="3.8"
+  camera-controls
+  exposure="2.5"
+  loading="lazy"
+  auto-rotate
+  interpolation-decay="100"
+  shadow-softness="1.2"     
+  camera-orbit="49.25deg 81.73deg auto"
+  min-camera-orbit="auto 52deg auto"
+  max-camera-orbit="auto 98deg auto"
+  environment-image="https://cdn.glitch.com/26f00b29-51b7-4811-9ca7-3f1c898bb4b3%2Faircraft_workshop_01_1k.hdr"
+  oncontextmenu="return false;"
+  autoplay
+  ar
+
+  camera-controls
+   touch-action="pan-y"
+>
+
+</model-viewer> -->
+</div>
+
+<script type="module" src="/assets/extracss/glass.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+<script type="module" src="cameraControlsModel.js"></script>
+
+<script>
+
+  const mv = document.querySelector("#model-viewer");
+
+  const annotationClicked = (a) => {
+
+    let ds = a.parentNode.dataset;
+
+    mv.cameraTarget = ds.target;
+
+    mv.cameraOrbit = ds.orbit;
+
+    if(ds.fov !== undefined)
+
+        mv.fieldOfView = ds.fov;
+
+  }
+
+</script>
+
+
+

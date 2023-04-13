@@ -1,0 +1,317 @@
+
+<%- include('include/_header') %>
+<style>
+    img{
+    max-width: 300px;
+  }
+</style>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #MOVIE DETAIL
+      -->
+
+      <section class="movie-detail">
+        <div class="container">
+
+          <figure class="movie-detail-banner">
+     <!-- http://localhost:300/<%= data.logo %> -->
+     
+
+     <% if(data.logo){ %>
+      <img src="/<%= data.logo%>" alt="<%= data.title %>">
+    <% } else{ %>  
+      <img src="/<%= data.thumbnail%>" alt="<%= data.title %>">
+   <% } %>
+
+            <button class="play-btn">
+             
+            </button>
+
+          </figure>
+
+          <div class="movie-detail-content">
+
+            
+            <h1 class="h1 detail-title">
+              <%= data.title %> <strong>!</strong>
+            </h1>
+<p class="detail-subtitle"> <%= username %></p>
+            <div class="meta-wrapper">
+
+              <div class="badge-wrapper">
+                <div class="badge badge-fill">PG 13</div>
+
+                <!-- <div class="badge badge-outline">HD</div>
+              </div> -->
+
+              <div class="ganre-wrapper">
+            
+
+                <a href="#">FPS,</a>
+
+                <a href="#">Adventure,</a>
+
+                <a href="#">Science Fiction</a>
+              </div>
+
+              <div class="date-time">
+
+                <div>
+                  <ion-icon name="calendar-outline"></ion-icon>
+
+                  <time datetime="2021"> <%= data.date.getDate() %>-<%=  data.date.getMonth()+1%>- <%=  data.date.getYear() - 100%></time>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <p class="storyline">
+              <%= data.about %> 
+
+            </p>
+
+            <div class="details-actions">
+
+              <button class="share">
+                <ion-icon name="share-social"></ion-icon>
+
+                <span>Share</span>
+              </button>
+
+              <div class="title-wrapper">
+                <p class="text">Platform</p>
+
+                <p class="title"><%= data.platform %></p>
+              </div>
+
+              <button class="btn btn-primary">
+                <ion-icon name="download-outline"></ion-icon>
+
+                <span>Download</span>
+              </button>
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TV SERIES
+      -->
+
+      <section class="tv-series">
+        <div class="container">
+
+          <p class="section-subtitle">images</p>
+
+          <h2 class="h2 section-title">photos</h2>
+
+          <% if(!data.images.length){ %>
+            <p class="section-subtitle">no images available</p>
+          <% } else{ %>  
+ 
+         <% } %>
+
+
+         <style>
+             @media (max-width: 550px) { 
+    .movies-list{
+      grid-template-columns: 1fr ;
+      gap: 60px 30px;
+    }
+   } 
+         </style>
+          <ul class="movies-list">
+
+
+        
+              <% for(var i=0; i < data.images.length; i++) { %>
+              
+
+
+                 
+            <li>
+              <div class="movie-card">
+
+           
+                  <figure class="card-banner-2">
+                    <!-- http://localhost:300/<%= data.images[i] %> -->
+                    <img class="app-images" src="/<%= data.images[i] %>" alt="Moon Knight movie poster">
+                  </figure>
+               
+
+       
+
+         
+
+              </div>
+            </li>
+
+              <% } %>
+              
+              
+
+
+
+
+
+
+
+
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #VIDEO
+      -->
+
+
+      <section class="tv-series">
+        <div class="container">
+
+          <p class="section-subtitle">video</p>
+
+          <h2 class="h2 section-title">videos</h2>
+
+       
+                             
+          
+              <div class="m">
+
+                <!-- <a href="./movie-details.html"> -->
+                  <figure class="c" >
+ 
+
+
+     
+           
+
+           
+           
+
+            <%if(data.ytLink){ params   = new URL(data.ytLink).searchParams}%>
+
+            <% if(data.ytLink){ %>
+              <div class="container">
+              <iframe class="responsive-iframe" src="https://www.youtube.com/embed/<%=params.get('v')%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <% } else{ %>  
+              <p class="section-subtitle">no video availabe !</p>
+           <% } %>
+
+                  </figure>
+                <!-- </a> -->
+
+<style>
+.c .container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+</div>
+            
+            
+        </div>
+      </section>
+    </article>
+  </main>
+
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+  <%- include('include/_footer.ejs') %>
+
+  <script src="../assets/js/script.js"></script>
+
+<style>
+  .movie-detail{
+    overflow: hidden;
+  }
+  .app-images{
+  border-radius: 10px;
+}
+/* .movie-detail{
+background: url("https://images.alphacoders.com/128/thumbbig-1282982.webp") no-repeat;
+} */
+
+/* .movie-detail { 
+
+    background-image: url('https://picfiles.alphacoders.com/544/thumb-544149.jpg');
+    background-size: cover;
+} */
+
+/* .movie-detail::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -5px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.784);
+} */
+
+
+
+
+
+@media (min-width: 992px){
+.movie-detail-banner {
+  min-width: 300px;
+}}
+
+
+@media (max-width: 992px) {
+.movie-detail-content{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.meta-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px 25px;
+    margin-bottom: 50px;
+}
+}
+</style>

@@ -1,0 +1,364 @@
+<%- include('include/_side_header') %>
+<style>
+    .main2 {
+    flex: 1;
+    padding: 0rem;
+    color: #1f2027;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-bg-color);
+}
+.allpost{
+  margin:20px;
+}
+
+
+
+/* // about tab */
+  /* .about{
+    display: block;
+  } */
+  #Games{
+    display: block;
+  }
+ .tabcontent {
+  display: none;
+    }
+  #About{
+    justify-content: center;
+    flex-wrap: wrap;
+    /* width: 80%; */
+    margin: 50px 100px;
+    color: var(--text-color);
+    }
+    .activetab{
+    background-color: rgb(54, 81, 212);
+  }
+  
+  @media (max-width:750px){
+  #About{
+    justify-content: center;
+    flex-wrap: wrap;
+    /* width: 80%; */
+    margin: 30px;
+    color: var(--text-color);
+    }
+}
+</style>
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/css/account.css">
+<style>
+  .user-header{
+    width: 100%;
+    /* height: 100px; */
+    object-fit: cover;
+    aspect-ratio: 9/1;
+  }
+  @media (max-width: 700px){
+    .user-header{
+    width: 100%;
+    /* height: 100px; */
+    object-fit: cover;
+    aspect-ratio: 5/2;
+  }
+}
+
+  .user-icon{
+    object-fit: cover;
+
+    border: 0.5em solid #887e70;
+
+    aspect-ratio: 2 / 2;
+
+  }
+</style>
+
+<main>
+    <div class="user-header-wrapper flexbox">
+        <div class="user-header-inner flexbox">
+            <div class="user-header-overlay"></div>
+           
+            <% if(data.userbg){ %>
+              <img class="user-header" src="<%= url %>/<%= data.userbg %>" alt="">
+ <% } else{ %>
+  <img class="user-header" src="/assets/images/userbg.webp" alt="">
+
+            <% }  %>
+        </div>
+    </div>
+    <div class="user-info-bar">
+        <div class="ufo-bar-col1">
+        </div>
+        <div class="ufo-bar-col2">
+            <div class="ufo-bar-col2-inner">
+                <div class="user-icon-wrapper">
+               
+                    <% if(data.userphoto){ %>
+                      <img class="user-icon" src="<%= url %>/<%= data.userphoto %>" alt="">
+         <% } else{ %>
+          <!-- <img class="user-icon" src="/assets/images/userimg.png" alt=""> -->
+           <img class="user-icon" src="https://xsgames.co/randomusers/avatar.php?g=pixel" alt="">
+
+                    <% }  %>
+                </div>
+            </div>
+        </div>
+        <div class="ufo-bar-col3">
+            <div class="ufo-bar-col3-inner">
+                <div class="username-wrapper-outer">
+                    <div class="username-wrapper">
+                      
+                        <h3 class="username-dev"><%= data.username %></h3>
+                        <% if(data.verified){ %>
+                            <svg class="uname-verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350.03 1326.16">
+                                <defs><style>.cls-11{fill:var(--primary);}.cls-12{fill:#000000;}</style></defs><title>verified</title>
+                                <g id="Layer_3" data-name="Layer 3">
+                                    <polygon class="cls-11" points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"/></g>
+                                <g id="Layer_2" data-name="Layer 2">
+                                    <path class="cls-12" d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z" transform="translate(-322.83 -335.95)"/></g>
+                            </svg>
+                         <% } %>
+                     
+
+                    </div>
+                    <div>
+                   <%= data.about%>
+                    </div>
+                    <div>
+                      <%= data.visits%>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ufo-bar-col4">
+            <div class="ufo-bar-col4-inner">
+                <button class="button2 btn-primary2"><i class="uil uil-plus"></i>
+                  <%if(data.isadmin){%>
+                    <a href="/editaccount"> edit </a>
+                  
+                   <% } else{ %>
+                   <ion-icon name="heart-outline"></ion-icon>
+                   <% } %>
+                   <div class="btn-secondary2"></div></button>
+            </div>
+        </div>
+        <div class="ufo-bar-col5">
+        </div>
+        
+    </div>
+    <div class="user-info-bar2">
+      <div class="ufo-bar2-col1">
+      </div>
+      <div id="ufo-home" class="ufo-bar2-col2 ufo-bar2-block tabbutton activetab" onclick="openCity(event, 'Games')">
+          <div class="ufo-bar2-col2-inner flexbox">
+              <span><i class="uil uil-trophy"></i></span>
+              <h3>Games</h3>
+          </div>
+      </div>
+      <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block tabbutton" onclick="openCity(event, 'About')">
+          <div class="ufo-bar2-col3-inner flexbox">
+              <span><i class="uil uil-star"></i></span>
+              <h3>About</h3>
+          </div>
+      </div>
+      <!-- <div id="ufo-images" class="ufo-bar2-col4 ufo-bar2-block">
+          <div class="ufo-bar2-col4-inner flexbox">
+              <span><i class="uil uil-comment-alt"></i></span>
+              <h3>Posts</h3>
+          </div>
+      </div> -->
+      <!-- <div id="ufo-about" class="ufo-bar2-col6 ufo-bar2-block">
+          <div class="ufo-bar2-col6-inner flexbox">
+              <span><i class="uil uil-user"></i></span>
+              <h3>About</h3>
+          </div>
+      </div> -->
+      <div class="ufo-bar2-col7">
+      </div>
+  </div>
+<div id="Games" class="allpost fontcolor tabcontent">
+    <% if(data.length==0) { %>
+
+        <div class="noresult">
+        <img style="width: max-content;"
+        src="/assets/images/emptycart.png"
+        alt="">
+      
+        <p class="fontcolor">Your Cart is empty start shopping now
+        <h3 style="color: rgba(123, 113, 113, 0.785);">
+      
+            </>
+            </p>
+      
+          </div>
+            <% } %>
+      
+      
+      
+              <ul class="movies-list">
+  
+     
+                <% for(var i=0; i < (postdata.length ); i++) { %>
+
+                  <li>
+                    <div class="movie-card">
+      
+                      <a href="/app/<%= postdata[i]._id %>">
+                        <figure class="card-banner">
+                          <% if(postdata[i].thumbnail){ %>
+                            <img src="<%= url %>/<%= postdata[i].thumbnail %>" alt="<%= postdata[i].title %>">
+      
+                            <% } else if(postdata[i].logo){ %>
+                              <img src="<%= url %>/<%= postdata[i].logo %>" alt="<%= postdata[i].title %>">
+      
+                              <% } else{ %>
+      
+                                <img src="/assets/images/no-img.webp" alt="<%= postdata[i].title %>">
+      
+                                <% } %>
+      
+      
+      
+      
+      
+      
+                        </figure>
+                      </a>
+      
+                      <div class="title-wrapper" >
+                        <a id="text" href="./movie-details.html">
+                          <h3 class="card-title">
+                                <%= postdata[i].title %>
+                          </h3>
+                        </a>
+                        <!--  download number and visits number -->
+                      <!-- <h3 class="card-title">
+                        <%= postdata[i].visits %>
+                      </h3> -->
+                        <button>
+                          <i class='bx bx-heart' ></i>
+                        </button>
+                      </div>
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                      <div class="card-meta">
+      
+                      
+                        <div class="duration">
+      
+      
+                        </div>
+      
+                        <div class="rating">
+      
+                        </div>
+                      </div>
+      
+                    </div>
+                  </li>
+      
+                  <% } %>
+      
+
+<%if(data.isadmin){%>
+                  <li>
+                    <div class="movie-card">
+      
+                      <a href="https://dev.playsite.store">
+                        <figure class="card-banner" style="
+                        border: 2px dashed;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+                    ">
+            
+      
+       
+      +
+      <span style="    font-size: 15px;">Add App</span>
+      
+      
+      
+      
+      
+      
+                        </figure>
+                      </a>
+      
+
+                    </div>
+                  </li>
+
+                <%}%>               
+      
+      
+      
+      
+      
+              </ul>
+</div>
+
+<div id="About" class="tabcontent about">
+<p><%=data.about%> </p>
+</div>
+</main>
+
+
+
+
+<%- include('include/_side_footer'); %>
+
+
+
+
+<style>
+  @media (min-width: 1200px){
+.movies-list {
+    grid-template-columns: repeat(6, 2fr);
+}
+}
+@media (min-width: 992px) and (max-width:1200px){
+.movies-list {
+    grid-template-columns: repeat(4, 1fr);
+}
+}
+</style>
+
+
+<script>
+  function openCity(evt, cityName) {
+      var i, tabcontent, tabbutton;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tabbutton = document.getElementsByClassName("tabbutton");
+      for (i = 0; i < tabbutton.length; i++) {
+        tabbutton[i].className = tabbutton[i].className.replace(" activetab", "");
+      }
+      document.getElementById(cityName).style.display = "flex";
+      console.log(document.getElementById(cityName));
+      evt.currentTarget.className += " activetab";
+    }
+</script>

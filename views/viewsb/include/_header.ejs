@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fresco</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/assets/css/mainb.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="#top">
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container headerheight">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="/dashboard" class="logo">
+        <img src="/assets/images/logo2.png" alt="logo">
+      </a>
+
+      <div class="header-actions">
+
+
+
+        <div class="lang-wrapper">
+          <label for="theme">
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                 </g>
+              </svg>
+            </button>
+        
+        
+        
+
+          </label>
+        </div>
+    
+
+
+
+        <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+
+
+<a href="http://applinks.ml">
+  <!-- edit profile -->
+        <button class="btn btn-primary">Main</button>
+      </a>
+      </div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="/dashboard" class="logo">
+            <img src="/assets/images/logo2.png" alt="logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="/dashboard" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="/dashboard/add-post" class="navbar-link">Add App</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">About Us</a>
+          </li>
+          <li>
+            <a href="http://applinks.ml" class="navbar-link">Main</a>
+          </li>
+      
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+
+
+
+  <!-- <div id="google_translate_element"></div> -->
+
+
+
+
+<link rel="stylesheet" href="/assets/css/dark.css">
+
+<script src="/assets/css/dark.js"></script>
+
+
+  
+<style>
+
+    
+  .headerheight{
+    height: 56px;
+
+  }
+
+
+  @media screen and (min-width: 840px){
+.headerheight {
+  height: 64px;
+}
+  }
+
+
+  @media (min-width: 992px){
+.header.active {
+  padding-block: 1px;
+}}
+.header.active{
+  box-shadow: 0 1px 4px hsl(0deg 4% 15% / 10%);
+padding-block: 0px;
+}
+.header{
+padding-block: 5px;
+}
+</style>

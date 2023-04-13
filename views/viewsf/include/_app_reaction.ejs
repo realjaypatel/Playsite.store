@@ -1,0 +1,230 @@
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/emojione/1.5.0/assets/css/emojione.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.0/lib/js/emojione.min.js"></script>
+
+
+
+
+
+<div id="container">
+
+<div class="content">
+<h1 class="fontcolor">Your reaction?</h1>
+        
+<div class="reaction">
+        <div class="emoji">😃</div>
+        <div class="count">52</div>
+        <div class="text">happy</div>
+</div>
+
+<div class="reaction">
+        <div class="emoji">😂</div>
+        <div class="text">amused</div>
+        <div class="count">1361</div>
+</div>
+
+<div class="reaction">
+        <div class="emoji">😍</div>
+        <div class="text">in love</div>
+        <div class="count">94</div>
+</div>  
+  
+<div class="reaction">
+        <div class="emoji">😮</div>
+        <div class="text">shocked</div>
+        <div class="count">5</div>
+</div>
+
+<div class="reaction">
+        <div class="emoji">😠</div>
+        <div class="text">angry</div>
+        <div class="count">17</div>
+</div>
+
+<div class="reaction">
+        <div class="emoji">😢</div>
+        <div class="text">sad</div>
+        <div class="count">0</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+<style>
+
+
+#container {
+display: table-cell;
+vertical-align: middle;
+text-align: center;
+}
+
+.content {
+background: rgba(255, 255, 255, 0);
+padding: 1em 0 1em 0;
+}
+
+.reaction {
+display: inline-block;
+position: relative;
+text-align: center;
+margin: 1em 0 0 0;
+}
+.reaction:hover .emoji {
+transform: scale(1.1, 1.1);
+transition: all 0.1s;
+}
+.reaction:hover .text {
+color: #222;
+transition: all 0.1s;
+}
+
+.emoji {
+font-size: 4em;
+cursor: pointer;
+}
+
+.count {
+position: absolute;
+top: -1em;
+right: 0;
+border-radius: 1.75em;
+min-width: 1.25em;
+height: 1.75em;
+font: 600 0.9em "Muli", arial, sans-serif;
+background: #e84855;
+color: white;
+border: 0.25em solid white;
+padding: 0 0.25em;
+cursor: pointer;
+}
+
+.text {
+font: 400 1em/2.5em "Muli", arial, sans-serif;
+color: #ccc;
+cursor: pointer;
+}
+
+
+
+
+
+#modal {
+position: absolute;
+background: white;
+border: 1px solid #d9d9d9;
+box-shadow: 0 0 0.25em #ccc;
+}
+
+
+
+.animate {
+animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+from, 20%, 40%, 60%, 80%, to {
+animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+20% {
+transform: scale3d(1.1, 1.1, 1.1);
+}
+40% {
+transform: scale3d(0.9, 0.9, 0.9);
+}
+60% {
+transform: scale3d(1.03, 1.03, 1.03);
+}
+80% {
+transform: scale3d(0.97, 0.97, 0.97);
+}
+to {
+transform: scale3d(1, 1, 1);
+}
+}
+</style>
+
+
+
+
+
+
+
+
+
+<script>
+        // Use SVGs
+emojione.imageType = "svg";
+
+var emojis = document.querySelectorAll(".emoji");
+var modal = document.getElementById("modal");
+
+for(i = 0; i < emojis.length; i++) {
+
+// Convert emojis
+emojis[i].innerHTML = emojione.toImage(emojis[i].innerHTML);
+
+// Add actions on click
+emojis[i].parentNode.addEventListener("click", function(event) {
+var _self = this;
+
+// Make sure nothing is opened yet
+if(modal.classList.contains("hidden")) {
+
+    // If share buttons are active, open modal after 1s
+    if(!document.getElementById("none").checked) {
+        setTimeout(function() {
+
+            // Tooltips
+            if(document.getElementById("tooltip").checked) {
+                var target = _self.getBoundingClientRect();
+                modal.style.left = target.left + target.width/2 - 150 + "px";
+                modal.style.top = target.top + target.height + 10 + "px";
+                modal.classList.add("tooltip");
+            }
+
+            // Popups
+            else {
+                modal.style.left = 0;
+                modal.style.top = 0;
+                modal.classList.add("popup");
+            }
+
+            // Add emotion to modal text
+            document.getElementById("modalcontent").innerText = "Let your friends know why you feel " + _self.querySelectorAll(".text")[0].innerText + ".";
+
+            // display modal and animate
+            modal.classList.remove("hidden");
+            modal.classList.add("animate");
+        }, 1000);
+    }
+    
+    // counter + 1
+    var counter = parseInt(this.querySelectorAll(".count")[0].innerText) + 1;
+    _self.querySelectorAll(".count")[0].innerText = counter;
+    _self.querySelectorAll(".count")[0].classList.add("animate");
+    
+    // Remove animation class to allow second animation if necessary
+    setTimeout(function() {
+        _self.querySelectorAll(".reactions--count")[0].classList.remove("animate");
+                }, 600);
+}
+});
+}
+
+// Close modal and reset classes
+
+</script>
+
+
+
+
+
